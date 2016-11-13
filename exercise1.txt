@@ -1,4 +1,0 @@
-When reading or writing  writing a disk file, are the functions described in this chapter really unbuffered? Explain.
-
-Answer:
-No, reading and writing is always buffered. This is because it is quicker and more efficient to buffer files that have already been opened and not immediately saving them to disk. Disk reads are significantly more expensive and take more time than reading from a buffer.
