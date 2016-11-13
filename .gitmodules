@@ -1,0 +1,3 @@
+[submodule "advanced_programming_in_the_linux_enviornment/chapter3"]
+	path = advanced_programming_in_the_linux_enviornment/chapter3
+	url = git://github.com/clairethebear/Linux-Learning.git
