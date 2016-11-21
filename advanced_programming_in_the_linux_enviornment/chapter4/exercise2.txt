@@ -1,0 +1,9 @@
+QUESTION: What happens if the file mode creation mask is set to 777 (octal)? Verify the results using your shell’s umask command.
+
+
+ANSWER:
+If you set this to 777 this means that when creating a file you are effectively not giving you (the owner), groups or other permissions.
+
+You will be able to view the file from the directory, but you will be unable to delete, modify or read the file.
+
+You will however be able to remove the file.

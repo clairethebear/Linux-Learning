@@ -1,0 +1,7 @@
+Q: Modify the program in Figure 4.3 to use stat instead of lstat. What changes if one of the command-line arguments is a symbolic link?
+
+A: Changing lstat to stat changed the way the program detected symbolic links. What was once displaying a symbolic link then only
+read the file as a regular file.
+
+Things to note: not using lstat could cause programs to only read the symbolic link as a regular file and never get the contents
+of the linked file.  

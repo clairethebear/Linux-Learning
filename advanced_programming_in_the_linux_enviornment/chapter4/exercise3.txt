@@ -1,0 +1,7 @@
+Q: Verify that turning off user-read permission for a file that you own denies your access to the file.
+
+A: After performaing the following commands:
+umask 0444 - this will allow write and execute only when creating any files
+touch test_umask - this presented --w--w--w when creating a new file
+
+Result: I was not able to read the file. I was not even able to tab complete on the file.
