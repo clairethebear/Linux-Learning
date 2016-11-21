@@ -1,0 +1,3 @@
+Q: In Section 4.21, how does the system’s limit on the number of open files affect the myftw function?
+
+A:

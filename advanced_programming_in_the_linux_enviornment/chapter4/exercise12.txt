@@ -1,0 +1,15 @@
+Q: Each process also has a root directory that is used for resolution of absolute pathnames. 
+
+This root directory can be changed with the chroot function. 
+
+Look up the description for this function in your manuals. When might this function be useful?
+
+A: Chroot allows you to run an program and specify the root directory. For example, chroot . bash - this will
+run bash inside the folder that you are currently located in. The result of this is that bash see's the directory
+as the root directory. 
+
+This might be useful if you want to make a virtual enviornment when developing on a certain directory.
+
+It will only look at that directory as root and not see any other dependancies to do with your real filesystem.
+
+I can see it as keeping a directory and all of its dependancies self contained. 

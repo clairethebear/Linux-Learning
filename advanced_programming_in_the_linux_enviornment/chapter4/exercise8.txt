@@ -1,0 +1,14 @@
+Q: When running the program in Figure 4.16, we check the available disk space with the df(1) command. Why didn’t we use the du(1) command?
+
+
+A: 
+du: Disk Usage, walks through the directory tree and counts the size of each file. It may not be able to display files that are
+hard or symbolic links.
+
+df: Desk free. Looks at directly in the filesystem metadata. It will show the results of the entire directory instead of a per file
+basis like du. It is also much faster than du and used more often to pin point where the most disk is being used by a file.
+
+We used this for the example because we wanted to see how unlink worked on a directory. With this command we are able to see the amount
+of space the directory is taking up on the disk as well as the amount of free space available per block.
+
+Visually, this is easier to understand and track than du

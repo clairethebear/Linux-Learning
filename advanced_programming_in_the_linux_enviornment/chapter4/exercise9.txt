@@ -1,0 +1,5 @@
+Q: In Figure 4.20, we show the unlink function as modifying the changed-status time of the file itself. How can this happen?
+
+
+A: The changed-status time of a file is modified when the i-node of the file has been changed. Unlink changes the changed-status
+of a file because we decrement the amount of links that are associated with the file. And this changes the i-node. 

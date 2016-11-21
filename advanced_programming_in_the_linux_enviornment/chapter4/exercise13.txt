@@ -1,0 +1,16 @@
+Q: How can you set only one of the two time values with the utime function?
+
+A: To set the time in utime you need to do the following
+
+struct utimebuf {
+	time_t actime; //access time
+	time_t modtime; //modificatin time
+} 
+
+If one is not declared, the default value will be set to the current time. So the answer to this question would be:
+
+struct utimebuf {
+        time_t actime; //access time
+}
+
+To whcih modification time will be set to the current time.
