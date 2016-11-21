@@ -55,7 +55,7 @@ main(void)
 
 
     size_t nread;
-    do {
+/*    do {
         ssize_t m = 0;
         nread = 0;
         // Read a block (or less).
@@ -77,7 +77,7 @@ main(void)
             }
         }
     } while (read >0);
-
+*/
     
     hole_start = lseek(fd, 0, SEEK_HOLE);
     hole_end = lseek(fd, 0, SEEK_DATA);

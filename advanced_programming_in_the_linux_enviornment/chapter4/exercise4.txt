@@ -1,4 +1,4 @@
-QUESTION: In Section 4.12, we said that a file size of 0 is valid for a regular file. We also said that the st_size field is defined for directories and symbolic links. Should we ever see a file size of 0 for a directory or a symbolic link?
+Q: Run the program in Figure 4.9 after creating the files foo and bar. What happens?
 
-ANSWER:
-We should never see a file size of 0. This is because every time a directory is created, it contains a 'hidden' file called the dotted file. This is linked to the directory via a symbolic link, where memory is required to reference i-node to the directory name.
+A: The permission bits are not changed. This is because if the file has already been created, it will simply return the
+already created file decriptor. 
