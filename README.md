@@ -1,3 +1,3 @@
 # Linux-Learning
 
-Chapter 3 of the Advanced Programming in the UNIX Enviornment
+Exercises from the chapters in the book called Advanced programming in the linux enviornment.
