@@ -1,0 +1,8 @@
+Package: chin2
+Version: 1.0.1
+Section: base
+Priority: optional
+Architecture: all
+Depends: debconf (>= 0.2.26)
+Maintainer: chin2
+Description: Hello World

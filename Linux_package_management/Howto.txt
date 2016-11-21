@@ -1,0 +1,26 @@
+Steps to follow to create a debian package for a C program
+
+1. Create a folder for you package.
+2. Go to that folder and create another named DEBIAN
+3. Now create a "control" file in that folder
+4. Write the following details in that file and save it:
+
+Package: chin2
+Version: 1.0.1
+Section: base
+Priority: optional
+Architecture: all
+Depends: debconf (>= 0.2.26)
+Maintainer: chin2
+Description: Hello World
+
+5. Create a folder in sample called usr
+6. Create your C application and compile it
+7. Make sure you have build-essentials installed
+	sudo apt-get install build-essentials
+8. Then create the debian package
+	sudo dpkg-deb --build sample/
+9. Now you are able to install the package from the sample directory
+	sudo dpkg -i sample.deb
+
+Now you can execute that package from any place in the file system 
