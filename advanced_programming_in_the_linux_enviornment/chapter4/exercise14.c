@@ -10,18 +10,20 @@ main() {
   char* dir;
   char* new_dir;
 
-  while(i < 4) {
+  while(i < 100000) {
     //Get the current working directory
     if (getcwd(cwd, sizeof(cwd)) == NULL)
-      perror("getcwd() error");
+//      perror("getcwd() error");
+      exit(EXIT_FAILURE);
     else
       printf("current working directory is: %s\n", cwd);
 
-    new_dir = (char*)malloc(strlen(dir) * sizeof(char));
-    new_dir = strcat(cwd, "test");
+    new_dir = (char*)malloc(strlen(cwd) * sizeof(char));
+    new_dir = strcat(cwd, "/test");
+
     //Create a folder named text  
-    if(mkdir(strcat(new_dir, "test"), 00777) != 0)
-      printf("Folder creation did not work");
+    if(mkdir(new_dir, 00777) != 0)
+      printf("\nFolder creation did not work\n");
 
     //Get the current working directory
     if (getcwd(cwd, sizeof(cwd)) == NULL)
