@@ -1,0 +1,5 @@
+Q: On an Intel x86 system under both FreeBSD and Linux, if we execute the program that prints “hello, world” and 
+do not call exit or return, the termination status of the program, which we can examine with the shell, is 13. Why?
+
+A: If a return number is not specified when exiting a program, it will try and find anything thats stored in memory and 
+return this.
