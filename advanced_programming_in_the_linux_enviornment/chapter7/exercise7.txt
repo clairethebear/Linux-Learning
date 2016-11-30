@@ -1,0 +1,4 @@
+Q: In the output from the size command at the end of Section 7.6, why aren’t any sizes given for the heap and the stack?
+
+A: This is because the stack and the heap have undefined sizes, the only thing they are allocated is a starting to point
+in memory to which they can start writing.
