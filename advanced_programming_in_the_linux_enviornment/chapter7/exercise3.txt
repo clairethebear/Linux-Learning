@@ -1,0 +1,4 @@
+Q: Is there any way for a function that is called by main to examine the command-line arguments without (a) passing argc and argv as arguments from main to the function or 
+(b) having main copy argc and argv into global variables?
+
+A: Short answer is no.
