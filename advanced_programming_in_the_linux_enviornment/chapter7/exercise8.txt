@@ -1,0 +1,4 @@
+Q: In Section 7.7, the two file sizes (475570 and 11410) don’t equal the sums of their respective text and data sizes. Why?
+
+A: this is because in one instance we have forced the program to import all of the dependancies for it to run. While in the 
+other program, we are querying the shared libraries.
