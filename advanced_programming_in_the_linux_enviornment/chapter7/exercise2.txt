@@ -1,0 +1,11 @@
+Q: When is the output from the printfs in Figure 7.3 actually output?
+
+A: In order this is what will happen once the program is executed:
+"main is done"
+"first exit handler"
+"first exit handler"
+"second exit handler"
+
+The reason it happens in that order is that, the print inside main will execute.
+Then when exit is called the print at the top of the stack (declared first) will be printed. The rest will follow
+in order.
