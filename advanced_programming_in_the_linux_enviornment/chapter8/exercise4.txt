@@ -1,0 +1,26 @@
+Q: When we execute the program in Figure 8.13 one time, as in
+
+   $ ./a.out
+
+the output is correct. But if we execute the program multiple times, one right after the other, as in
+
+   $ ./a.out ; ./a.out ; ./a.out
+   output from parent
+   ooutput from parent
+   ouotuptut from child
+   put from parent
+   output from child
+   utput from child
+
+the output is not correct. What’s happening? How can we correct this? Can this problem happen if we let 
+the child write its output first?
+
+A: The problem is that in the code we have the parent telling the child to wait until it has finished processing the 
+function charatatime. When this finishes the parent exits and the child begins to execute the function charatatime.
+
+The next program will then run and the parent will again start the function charatatime - the child could still be working 
+on this function which means that two different processes will start writing to stdout.
+
+We can correct this by getting the parent to wait for the child to terminate before exiting the program.
+
+If we allow the child to terminate before the parent executes this would also avoid the problem.
