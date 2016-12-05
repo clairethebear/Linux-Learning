@@ -1,0 +1,5 @@
+Q: In the program shown in Figure 8.20, we call execl, specifying the pathname of the interpreter file. 
+If we called execlp instead, specifying a filename of testinterp, and if the directory /home/sar/bin was a path prefix, 
+what would be printed as argv[2] when the program is run?
+
+A: The same would be printed: /home/sar/bin/testinerp
