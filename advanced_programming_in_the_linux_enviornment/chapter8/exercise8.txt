@@ -1,3 +1,3 @@
-Q: Hoq can a process obtain its saved set-user-ID?
+Q: How can a process obtain its saved set-user-ID?
 
 A: By usng the following system call: int setreuid(uid_t ruid, uid_t euid);
