@@ -1,0 +1,6 @@
+The reason this is happening is that when the program is run, once the parent has finished it will start the pgogram again. 
+The child might not necessarily be finished yet, so they are both writing to stdout at the same time.
+
+We can correct this by waiting for the child to finish before exiting the parent.
+
+This can be prevented by letting the child write its output first.
