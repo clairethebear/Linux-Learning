@@ -1,0 +1,3 @@
+What will happen is that (depending on what the program is doing) when the child finishes returning all the way up to main()
+then the stack will all be deleted and force the parent to terminate instead of executing the rest of what it was supposed to 
+do.
