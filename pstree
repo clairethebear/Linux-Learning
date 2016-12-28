@@ -1,0 +1,62 @@
+#!/usr/bin/python
+import os
+from cStringIO import StringIO
+
+def get_pids():
+    """Get all the PIDs found in the proc directory"""
+    pids = []
+    for name in os.listdir('/proc'):
+        try:
+            pids.append(int(name))
+        except ValueError:
+            pass
+    return pids
+
+def read_procs():
+    """Read the processes from get_pids and pass them through
+    build_proc to get the details of the processes"""
+    return [build_proc(pid) for pid in get_pids()]
+
+def arg_generator(seq):
+    buf = StringIO()
+    for c in seq:
+        if c == '\0':
+            s = buf.getvalue()
+            buf.seek(0)
+            buf.truncate()
+            yield s
+        else:
+            buf.write(c)
+
+
+def build_proc(pid):
+    """Get the process path and get the uid, ppid, process name."""
+    proc_dir = '/proc/%d' % pid
+    # Stat the directory to get the UID of the folder
+    stat = os.stat(proc_dir)
+    uid = stat.st_uid
+    # The file that is passed to arggenerator (example 'proc/1234/cmdline')
+    # is a file that shows the parameters passed to the kernel at the time
+    # it started. This is a way of retrieving the executable name. The read
+    # only file holds the complete command line for the process. The command line
+    # arguments appear in this file as a set of string separated by null bytes ('\0')
+    args = list(arg_generator(open('%s/cmdline' %  proc_dir).read()))
+    # Retrieve the process status. This is used by PS
+    proc_stat = open('%s/stat' % proc_dir).read()
+    # Massage the data into human readable - for process name retrieve 
+    # everything inside brackets.
+    cmd = proc_stat[proc_stat.index('(') + 1 : proc_stat.rindex(')')]
+    # Match on parent process ID
+    ppid = int(proc_stat[proc_stat.index(')') + 4 : ].split() [0])
+    return {'cmd': cmd, 'args': args, 'pid': pid, 'ppid': ppid, 'uid': uid}
+    
+pids = read_procs()
+max_pid = open('/proc/sys/kernel/pid_max').read()
+current_pid = 1
+while current_pid != int(max_pid):
+    for pid in pids:
+        if pid.get('pid') == current_pid:
+            print pid.get('cmd')
+
+    current_pid += 1
+
