@@ -1,0 +1,8 @@
+In the output from the program in Figure 1.6, what happened to the processes with the process Ids 852 and 853?
+
+Answer:
+The program calls execve followed by exit(0).
+According the manual page for exit(3) - exit causes notmal process termination.
+In the case of this program, causing execve removes registrations created using atexit(3) and on_exit(3).
+
+In short once the process has completed - it returns to the parent proces and exit(0) is exectured which terminates the current running process.

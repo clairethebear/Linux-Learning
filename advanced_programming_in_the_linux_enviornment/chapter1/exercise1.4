@@ -1,0 +1,13 @@
+If the calendar time is stored as a signed 32-bit integer, in which year will it overflow? How can we extend the overflow point? Are these strategies compatible with existing applications?
+
+Answer:
+An unsigned number is the positive representation of a number.
+A signed number is the postive and negative representation of a number.
+
+The max positive value for a 32 bit signed binary is 2 to the power of 31 (2^31) - that equates to 1,147,483,677.
+
+Putting that in an epoch converter gives us Jan 19, 2038, 3:14:34 AM.
+
+This means that in the year 2038, the number will overflow.
+
+It seems the sign extension is a way to extend a binary integer without sacrfacing the unisgned number.
